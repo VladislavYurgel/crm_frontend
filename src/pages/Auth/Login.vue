@@ -8,7 +8,7 @@
                     </v-card-title>
                     <v-card-text>
                         <v-text-field label="Email" v-model="user.email" type="email" required></v-text-field>
-                        <v-text-field label="Password" v-model="user.password" required></v-text-field>
+                        <v-text-field label="Password" v-model="user.password" type="password" required></v-text-field>
                     </v-card-text>
                     <v-card-actions>
                         <v-btn flat class="blue--text" @click="login()">Login</v-btn>

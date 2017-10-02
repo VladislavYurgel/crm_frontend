@@ -19,14 +19,17 @@
 
             <v-spacer></v-spacer>
 
+            <!-- SIDEBAR BUTTONS -->
             <div v-if="!isAuth">
-                <v-btn :to="{name: 'login'}" flat>Login</v-btn>
-                <v-btn :to="{name: 'registration'}" flat>Registration</v-btn>
+                <v-btn :to="{name: 'Login'}" flat>Login</v-btn>
+                <v-btn :to="{name: 'Registration'}" flat>Registration</v-btn>
             </div>
             <div v-else>
                 <v-btn flat>{{ profile.first_name }} {{ profile.last_name }}</v-btn>
                 <v-btn flat @click="logout()">Logout</v-btn>
             </div>
+            <!-- END SIDEBAR BUTTONS -->
+
         </v-toolbar>
         <main>
             <v-container fluid>
@@ -50,6 +53,7 @@
         methods: {
             logout() {
                 this.$store.dispatch('logout');
+                this.$router.go(history.current);
             }
         },
         computed: {

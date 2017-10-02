@@ -42,7 +42,7 @@ const actions = {
     },
     logout({commit, dispatch}) {
         commit('unsetProfile');
-        dispatch('changeDrawerSate', false);
+        dispatch('changeDrawerState', false);
     }
 };
 

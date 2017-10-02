@@ -10,7 +10,7 @@
                         <v-text-field label="First name" v-model="user.first_name" type="email" required></v-text-field>
                         <v-text-field label="Last name" v-model="user.last_name" type="email" required></v-text-field>
                         <v-text-field label="Email" v-model="user.email" type="email" required></v-text-field>
-                        <v-text-field label="Password" v-model="user.password" required></v-text-field>
+                        <v-text-field label="Password" v-model="user.password" type="password" required></v-text-field>
                     </v-card-text>
                     <v-card-actions>
                         <v-btn flat class="blue--text" @click="registration()">Registration</v-btn>

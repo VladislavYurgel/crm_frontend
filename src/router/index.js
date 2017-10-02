@@ -6,6 +6,8 @@ import Auth from './../components/Auth/Auth.vue'
 import Login from './../pages/Auth/Login.vue'
 import Register from './../pages/Auth/Register.vue'
 
+import store from './../store/index'
+
 Vue.use(Router);
 
 export default new Router({
@@ -13,6 +15,9 @@ export default new Router({
       {
           path: '/',
           name: 'Hello',
+          beforeEnter: (to, from, next) => {
+              store.getters.isAuth ? next() : next({name: 'Login'});
+          },
           component: Hello
       },
       {
@@ -22,10 +27,12 @@ export default new Router({
           children: [
               {
                   path: 'login',
+                  name: 'Login',
                   component: Login,
               },
               {
                   path: 'registration',
+                  name: 'Registration',
                   component: Register
               }
           ]
