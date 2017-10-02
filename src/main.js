@@ -1,19 +1,25 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueMaterial from 'vue-material'
-import Vuex from 'vuex'
+import store from './store/index'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+import PageContent from './components/PageContent.vue'
 
-Vue.use(VueMaterial);
-Vue.use(Vuex);
-require('vue-material/dist/vue-material');
+Vue.use(VueAxios, axios);
+Vue.use(Vuetify);
 
 Vue.config.productionTip = false;
 
+Vue.component('page-content', PageContent);
+
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
+    el: '#app',
+    router,
+    store,
+    template: '<App/>',
+    components: { App }
 });
