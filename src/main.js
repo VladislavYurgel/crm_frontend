@@ -6,10 +6,14 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
+import './assets/custom.css'
 import PageContent from './components/PageContent.vue'
+
+import SidenavMenu from './plugins/sidenavMenu'
 
 Vue.use(VueAxios, axios);
 Vue.use(Vuetify);
+Vue.use(SidenavMenu);
 
 Vue.config.productionTip = false;
 

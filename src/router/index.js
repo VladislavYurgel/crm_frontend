@@ -5,6 +5,7 @@ import Hello from '@/components/Hello'
 import Auth from './../components/Auth/Auth.vue'
 import Login from './../pages/Auth/Login.vue'
 import Register from './../pages/Auth/Register.vue'
+import UseraCompanies from './../pages/User/UserCompanies.vue'
 
 import store from './../store/index'
 
@@ -18,7 +19,14 @@ export default new Router({
           beforeEnter: (to, from, next) => {
               store.getters.isAuth ? next() : next({name: 'Login'});
           },
-          component: Hello
+          component: Hello,
+          children: [
+              {
+                  path: 'companies',
+                  name: 'Companies',
+                  component: UseraCompanies
+              }
+          ]
       },
       {
           path: '/auth',

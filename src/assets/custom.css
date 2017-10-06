@@ -1,0 +1,8 @@
+.nav-avatar {
+    padding-top: 30px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.nav-avatar-name {
+    margin-top: 20px;
+}

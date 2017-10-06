@@ -11,7 +11,10 @@
                         <v-text-field label="Password" v-model="user.password" type="password" required></v-text-field>
                     </v-card-text>
                     <v-card-actions>
-                        <v-btn flat class="blue--text" @click="login()">Login</v-btn>
+                        <v-btn flat class="blue--text" @click="login()">
+                            <v-progress-circular v-if="onSending" indeterminate class="primary--text"></v-progress-circular>
+                            <span v-else>Login</span>
+                        </v-btn>
                         <v-btn flat class="black--text" to="registration">I don't have an account</v-btn>
                     </v-card-actions>
                 </v-card>

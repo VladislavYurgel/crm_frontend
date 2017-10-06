@@ -1,7 +1,5 @@
 <template>
-    <page-content pageTitle="Hello">
-        Hello
-    </page-content>
+    <router-view></router-view>
 </template>
 
 <script>

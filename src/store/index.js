@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
-import * as Cookies from 'js-cookie'
 
 import drawer from './modules/drawer'
 import user from './modules/user'
+import company from './modules/company'
 
 Vue.use(Vuex);
 
@@ -14,6 +14,7 @@ export default new Vuex.Store({
     ],
     modules: {
         drawer: drawer,
-        user: user
+        user: user,
+        company: company
     },
 });

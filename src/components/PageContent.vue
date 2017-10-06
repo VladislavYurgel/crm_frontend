@@ -1,15 +1,20 @@
 <template>
-    <v-app id="example-1" toolbar footer>
+    <v-app id="example-1" toolbar footer light>
         <v-navigation-drawer v-if="drawerIsDisabled" persistent v-model="drawer" light enable-resize-watcher absolute value="">
             <v-list dense>
-                <v-list-tile @click="">
-                    <v-list-tile-action>
-                        <v-icon>home</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title>Home</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
+                <v-layout row wrap class="nav-avatar">
+                    <v-flex xs12 text-xs-center layout align-center justify-center>
+                        <v-avatar :tile="false" size="75px" class="grey lighten-4">
+                            <img src="http://www.oebmidsummit.com/img/noavatar.jpg" alt="">
+                        </v-avatar>
+                    </v-flex>
+                    <v-flex xs12 text-xs-center layout align-center justify-center class="nav-avatar-name">
+                        {{ profile.first_name }} {{ profile.last_name }}
+                    </v-flex>
+                </v-layout>
+
+                <sidenavMenu></sidenavMenu>
+
             </v-list>
         </v-navigation-drawer>
         <v-toolbar class="indigo" dark fixed>
@@ -41,6 +46,7 @@
 
 <script>
     import { mapGetters } from 'vuex'
+    import SidenavMenu from './Sidenav/SidenavMenu.vue'
     export default {
         props: {
             pageTitle: String
@@ -62,6 +68,9 @@
                 isAuth: 'isAuth',
                 profile: 'profile'
             })
+        },
+        components: {
+            'sidenavMenu': SidenavMenu
         }
     }
 </script>

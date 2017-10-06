@@ -1,17 +1,22 @@
 import * as api from './../../api/api'
 
 const state = {
-    profile: null
+    profile: null,
+    token: null
 };
 
 const getters = {
     profile: state => state.profile,
+    token: state => state.token,
     isAuth: state => state.profile !== null
 };
 
 const mutations = {
     setProfile(state, userProfile) {
         state.profile = userProfile;
+    },
+    setToken(state, token) {
+        state.token = token;
     },
     unsetProfile(state) {
         state.profile = null;
@@ -25,6 +30,7 @@ const actions = {
                 console.log(response.data);
                 if (response.data.status) {
                     commit('setProfile', response.data.result);
+                    commit('setToken', response.data.token);
                     dispatch('changeDrawerState', true);
                 }
                 return response;
@@ -35,10 +41,14 @@ const actions = {
             .then(response => {
                 if (response.data.status) {
                     commit('setProfile', response.data.result);
+                    commit('setToken', response.data.token);
                     dispatch('changeDrawerState', true);
                 }
                 return response;
             });
+    },
+    userCompanies() {
+        return api.userCompany();
     },
     logout({commit, dispatch}) {
         commit('unsetProfile');
