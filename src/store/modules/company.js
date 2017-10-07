@@ -13,10 +13,9 @@ const mutations = {
 };
 
 const actions = {
-    createCompany(data) {
+    createCompany({}, data) {
         return api.createCompany(data)
             .then(response => {
-
                 return response;
             });
     },

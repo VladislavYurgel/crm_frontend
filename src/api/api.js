@@ -9,13 +9,13 @@ export const userLogin = (data) => {
 export const userRegister = (data) => {
     return Vue.axios.post(api.registerUrl, data);
 };
-export const userCompany = () => {
-    return axios.get(api.userCompany);
+export const userCompanies = () => {
+    return axios.get(api.userCompanies, api.getHeader());
 };
 
 // company
 export const createCompany = (data) => {
-    return Vue.axios.post(api.createCompanyUrl, data);
+    return Vue.axios.post(api.createCompanyUrl, data, api.getHeader());
 };
 export const updateCompany = (data, company_id) => {
     let url = api.updateCompanyUrl.replace('{id}', company_id);

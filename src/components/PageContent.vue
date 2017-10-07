@@ -2,19 +2,9 @@
     <v-app id="example-1" toolbar footer light>
         <v-navigation-drawer v-if="drawerIsDisabled" persistent v-model="drawer" light enable-resize-watcher absolute value="">
             <v-list dense>
-                <v-layout row wrap class="nav-avatar">
-                    <v-flex xs12 text-xs-center layout align-center justify-center>
-                        <v-avatar :tile="false" size="75px" class="grey lighten-4">
-                            <img src="http://www.oebmidsummit.com/img/noavatar.jpg" alt="">
-                        </v-avatar>
-                    </v-flex>
-                    <v-flex xs12 text-xs-center layout align-center justify-center class="nav-avatar-name">
-                        {{ profile.first_name }} {{ profile.last_name }}
-                    </v-flex>
-                </v-layout>
-
+                <userNav :profile="profile"></userNav>
+                
                 <sidenavMenu></sidenavMenu>
-
             </v-list>
         </v-navigation-drawer>
         <v-toolbar class="indigo" dark fixed>
@@ -24,17 +14,7 @@
 
             <v-spacer></v-spacer>
 
-            <!-- SIDEBAR BUTTONS -->
-            <div v-if="!isAuth">
-                <v-btn :to="{name: 'Login'}" flat>Login</v-btn>
-                <v-btn :to="{name: 'Registration'}" flat>Registration</v-btn>
-            </div>
-            <div v-else>
-                <v-btn flat>{{ profile.first_name }} {{ profile.last_name }}</v-btn>
-                <v-btn flat @click="logout()">Logout</v-btn>
-            </div>
-            <!-- END SIDEBAR BUTTONS -->
-
+            <sidebarButtons :profile="profile" :isAuth="isAuth"></sidebarButtons>
         </v-toolbar>
         <main>
             <v-container fluid>
@@ -47,6 +27,8 @@
 <script>
     import { mapGetters } from 'vuex'
     import SidenavMenu from './Sidenav/SidenavMenu.vue'
+    import UserNav from './Sidenav/UserNav.vue'
+    import SidebarButtons from './Sidebar/SidebarButtons.vue'
     export default {
         props: {
             pageTitle: String
@@ -70,7 +52,9 @@
             })
         },
         components: {
-            'sidenavMenu': SidenavMenu
+            'sidenavMenu': SidenavMenu,
+            'userNav': UserNav,
+            'sidebarButtons': SidebarButtons
         }
     }
 </script>

@@ -2,13 +2,17 @@ import * as api from './../../api/api'
 
 const state = {
     profile: null,
-    token: null
+    token: null,
+    userCompanies: null,
+    userCurrentCompany: null
 };
 
 const getters = {
     profile: state => state.profile,
     token: state => state.token,
-    isAuth: state => state.profile !== null
+    isAuth: state => state.profile !== null,
+    userCompanies: state => state.companies,
+    userCurrentCompany: state => state.userCurrentCompany
 };
 
 const mutations = {
@@ -20,6 +24,14 @@ const mutations = {
     },
     unsetProfile(state) {
         state.profile = null;
+    },
+    setUserCompanies(state, data) {
+        state.userCompanies = data;
+    },
+    setUserCurrentCompany(state, company) {
+        if (state.userCurrentCompany === null || state.userCurrentCompany.id !== company.id) {
+            state.userCurrentCompany = company;
+        }
     }
 };
 
@@ -47,8 +59,17 @@ const actions = {
                 return response;
             });
     },
-    userCompanies() {
-        return api.userCompany();
+    userCompanies({commit, state}) {
+        return api.userCompanies()
+            .then(response => {
+                if (response.data.status) {
+                    if (response.data.result.length !== 0) {
+                        commit('setUserCompanies', response.data.result);
+                        commit('setUserCurrentCompany', state.userCompanies[0]);
+                    }
+                    return response;
+                }
+            });
     },
     logout({commit, dispatch}) {
         commit('unsetProfile');

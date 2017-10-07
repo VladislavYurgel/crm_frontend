@@ -5,17 +5,19 @@ export const apiVersion = "v1/";
 
 export const getHeader = function () {
     const headers = {
-        'Accept': 'application/json',
-        'Authorization': 'Bearer ' + Store.getters.token
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + Store.getters.token
+        }
     };
-    return headers
+    return headers;
 };
 
 // user auth
 export const registerUrl = apiDomain + apiVersion + "auth/register";
 export const loginUrl = apiDomain + apiVersion + "auth/login";
 export const resetPasswordUrl = apiDomain + "password/email";
-export const userCompany = apiDomain + "/user/companies";
+export const userCompanies = apiDomain + apiVersion + "user/companies";
 
 // company
 export const createCompanyUrl = apiDomain + apiVersion + "company/create";

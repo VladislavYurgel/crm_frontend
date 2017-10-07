@@ -6,3 +6,6 @@
 .nav-avatar-name {
     margin-top: 20px;
 }
+.sel-company {
+    cursor: pointer;
+}

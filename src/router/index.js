@@ -5,7 +5,7 @@ import Hello from '@/components/Hello'
 import Auth from './../components/Auth/Auth.vue'
 import Login from './../pages/Auth/Login.vue'
 import Register from './../pages/Auth/Register.vue'
-import UseraCompanies from './../pages/User/UserCompanies.vue'
+import UserCompanies from './../pages/User/UserCompanies.vue'
 
 import store from './../store/index'
 
@@ -24,7 +24,7 @@ export default new Router({
               {
                   path: 'companies',
                   name: 'Companies',
-                  component: UseraCompanies
+                  component: UserCompanies
               }
           ]
       },

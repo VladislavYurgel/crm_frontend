@@ -4,8 +4,11 @@ let menuItems = [
     {icon: 'home', title: 'Home', clickCallback: () => {
         router.push('/');
     }},
-    {icon: 'business', title: 'My companies', clickCallback: () => {
+    {icon: 'business', title: 'Companies', clickCallback: () => {
         router.push('/companies')
+    }},
+    {icon: 'book', title: 'Tasks', clickCallback: () => {
+        router.push('/tasks')
     }}
 ];
 
