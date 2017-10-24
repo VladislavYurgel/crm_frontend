@@ -14,6 +14,12 @@
         props: {
             profile: Object,
             isAuth: Boolean
+        },
+        methods: {
+            logout() {
+                this.$store.dispatch('logout');
+                this.$router.go(history.current);
+            }
         }
     }
 </script>

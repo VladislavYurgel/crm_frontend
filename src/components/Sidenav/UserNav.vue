@@ -21,6 +21,23 @@
                 </v-chip>
                 <v-card>
                     <v-card-title>Change current team</v-card-title>
+                    <v-list>
+                        <v-divider></v-divider>
+                        <template v-for="(company, key) in companies">
+                            <v-list-tile :key="company.id" @click="setUserCurrentCompany(company)">
+                                <v-list-tile-content>
+                                    <v-list-tile-title v-html="company.name"></v-list-tile-title>
+                                </v-list-tile-content>
+                                <v-list-tile-action v-if="company.created_by === profile.id">
+                                    <v-chip class="orange white--text">
+                                        Owner
+                                        <v-icon right>star</v-icon>
+                                    </v-chip>
+                                </v-list-tile-action>
+                            </v-list-tile>
+                            <v-divider></v-divider>
+                        </template>
+                    </v-list>
                     <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn flat @click.native="teamDialog = false">Close</v-btn>
@@ -40,6 +57,12 @@
         data() {
             return {
                 teamDialog: false
+            }
+        },
+        methods: {
+            setUserCurrentCompany(company) {
+                this.$store.dispatch('setUserCurrentCompany', company);
+                this.teamDialog = false;
             }
         },
         computed: {

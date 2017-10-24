@@ -1,6 +1,6 @@
 <template>
     <page-content :pageTitle="title">
-        <v-data-table
+        <v-data-table v-if="companies"
             :headers="headers"
             :items="companies"
             hide-actions
@@ -58,25 +58,28 @@
                     name: '',
                     description: ''
                 },
-                companies: [],
                 dialog: false
             }
         },
         beforeCreate() {
-
+            this.$store.dispatch('userCompanies')
+                .then(response => {
+                    console.log(response);
+                });
         },
         methods: {
             createCompany() {
                 this.$store.dispatch('createCompany', this.newCompany)
-                    .then(response => {
-                        this.refreshCompanyList();
+                    .catch(error => {
+                        console.log(error);
                     });
-
                 this.dialog = false;
-            },
-            refreshCompanyList() {
-
             }
+        },
+        computed: {
+            ...mapGetters({
+                companies: 'userCompanies'
+            })
         }
     }
 </script>

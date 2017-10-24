@@ -6,6 +6,7 @@ import Auth from './../components/Auth/Auth.vue'
 import Login from './../pages/Auth/Login.vue'
 import Register from './../pages/Auth/Register.vue'
 import UserCompanies from './../pages/User/UserCompanies.vue'
+import CompanyManagement from './../pages/Company/CompanyManagement.vue'
 
 import store from './../store/index'
 
@@ -22,9 +23,9 @@ export default new Router({
           component: Hello,
           children: [
               {
-                  path: 'companies',
-                  name: 'Companies',
-                  component: UserCompanies
+                  path: 'companyManagement',
+                  name: 'companyManagement',
+                  component: CompanyManagement
               }
           ]
       },

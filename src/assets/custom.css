@@ -9,3 +9,6 @@
 .sel-company {
     cursor: pointer;
 }
+.management-tab {
+    padding: 25px 15px 15px 15px;
+}

@@ -21,3 +21,23 @@ export const updateCompany = (data, company_id) => {
     let url = api.updateCompanyUrl.replace('{id}', company_id);
     return Vue.axios.post(url, data);
 };
+export const companyDepartments = (company_id) => {
+    let url = api.companyDepartments.replace('{id}', company_id);
+    return axios.get(url, api.getHeader());
+};
+export const createDepartment = (data, company_id) => {
+    let url = api.createDepartment.replace('{id}', company_id);
+    return axios.post(url, data, api.getHeader());
+};
+export const createPosition = (data, company_id) => {
+    let url = api.createPosition.replace('{id}', company_id);
+    return axios.post(url, data, api.getHeader());
+};
+export const companyPositions = (company_id) => {
+    let url = api.companyPositions.replace('{id}', company_id);
+    return axios.get(url, api.getHeader());
+};
+export const companyUsers = (company_id) => {
+    let url = api.companyUsers.replace('{id}', company_id);
+    return axios.get(url, api.getHeader());
+};

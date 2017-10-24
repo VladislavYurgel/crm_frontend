@@ -22,3 +22,8 @@ export const userCompanies = apiDomain + apiVersion + "user/companies";
 // company
 export const createCompanyUrl = apiDomain + apiVersion + "company/create";
 export const updateCompanyUrl = apiDomain + apiVersion + "company/{id}/update";
+export const companyDepartments = apiDomain + apiVersion + "company/{id}/departments";
+export const createDepartment = apiDomain + apiVersion + "company/{id}/departments/create";
+export const companyPositions = apiDomain + apiVersion + "company/{id}/positions";
+export const createPosition = apiDomain + apiVersion + "company/{id}/positions/create";
+export const companyUsers = apiDomain + apiVersion + "company/{id}/users";

@@ -38,12 +38,6 @@
                 drawer: true
             }
         },
-        methods: {
-            logout() {
-                this.$store.dispatch('logout');
-                this.$router.go(history.current);
-            }
-        },
         computed: {
             ...mapGetters({
                 drawerIsDisabled: 'drawer',
